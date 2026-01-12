@@ -4,21 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Una página romántica interactiva hecha con HTML, CSS, JavaScript y amor 💕">
-    <meta name="theme-color" content="#e73c7e">
+    <meta name="theme-color" content="#FF1493">
     <meta property="og:title" content="Para ti ❤️ - Mensaje Especial">
     <meta property="og:description" content="Una página romántica interactiva hecha con puro corazón y tecnología ✨">
     <meta property="og:type" content="website">
     <title>Para ti ❤️ - Mensaje Especial Romántico</title>
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>💕</text></svg>">
     <style>
-        /* ============================================
-           IMPORTS Y FUENTES PERSONALIZADAS
-           ============================================ */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Dancing+Script:wght@400;700&display=swap');
 
-        /* ============================================
-           RESET Y ESTILOS GLOBALES
-           ============================================ */
         * {
             margin: 0;
             padding: 0;
@@ -31,48 +25,53 @@
 
         body {
             font-family: 'Cormorant Garamond', serif;
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
+            background: linear-gradient(-45deg, #FF6B9D, #C44569, #FA8072, #FFB6C1, #FF69B4, #FF1493, #FF69B4, #FFB6C1);
+            background-size: 600% 600%;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            width: 100%;
+            overflow-x: hidden;
+            animation: gradientShift 12s ease infinite;
             position: relative;
-            animation: gradientShift 15s ease infinite;
         }
 
-        /* Animación del fondo degradado */
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* ============================================
-           CONTENEDOR PRINCIPAL
-           ============================================ */
+        .main-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 5;
+        }
+
         .container {
             text-align: center;
             max-width: 900px;
-            width: 90%;
-            background: rgba(255, 255, 255, 0.98);
-            padding: 80px 60px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.99);
+            padding: 60px 50px;
             border-radius: 30px;
-            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.4),
-                        0 0 100px rgba(255, 105, 180, 0.6),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5),
+                        0 0 100px rgba(255, 105, 180, 0.7),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             animation: fadeInScale 1s ease-out;
             position: relative;
-            z-index: 10;
-            border: 3px solid rgba(255, 105, 180, 0.4);
+            border: 3px solid rgba(255, 105, 180, 0.5);
+            margin: 20px 0;
         }
 
         @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: scale(0.85) translateY(30px);
+                transform: scale(0.8) translateY(40px);
             }
             to {
                 opacity: 1;
@@ -80,77 +79,74 @@
             }
         }
 
-        /* ============================================
-           TÍTULOS Y TEXTO
-           ============================================ */
         h1 {
-            font-size: 4em;
-            background: linear-gradient(135deg, #e73c7e 0%, #ff6b9d 100%);
+            font-size: 4.5em;
+            background: linear-gradient(135deg, #FF1493 0%, #FF69B4 25%, #FFB6C1 50%, #FF69B4 75%, #FF1493 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-style: italic;
-            text-shadow: none;
-            margin-bottom: 15px;
-            letter-spacing: 3px;
-            animation: slideUp 0.8s ease-out 0.2s backwards;
+            margin-bottom: 10px;
             font-family: 'Playfair Display', serif;
             font-weight: 900;
+            letter-spacing: 3px;
+            animation: slideUp 0.8s ease-out 0.2s backwards, glow-text 3s ease-in-out infinite;
         }
 
-        .subtitle {
-            font-size: 1.5em;
-            color: #d946a6;
-            margin-bottom: 20px;
-            font-style: italic;
-            animation: slideUp 0.8s ease-out 0.4s backwards;
-            opacity: 0.9;
-            font-family: 'Dancing Script', cursive;
-            font-weight: 700;
+        @keyframes glow-text {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 69, 180, 0.5)); }
+            50% { filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.8)); }
         }
 
-        .intro-text {
-            font-size: 1.15em;
-            color: #555;
-            line-height: 1.9;
-            margin: 30px 0;
-            animation: fadeIn 1s ease-out 0.6s backwards;
-            letter-spacing: 0.5px;
-            opacity: 0.95;
-        }
-
-        p {
-            font-size: 1.05em;
-            color: #444;
-            line-height: 1.8;
-            margin: 15px 0;
-            animation: fadeIn 1s ease-out;
-            font-weight: 400;
-        }
-
-        .message {
-            font-size: 1.4em;
-            background: linear-gradient(135deg, #e73c7e 0%, #ff6b9d 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 30px 0;
-            font-family: 'Dancing Script', cursive;
-            animation: fadeInText 2.5s ease-out;
-            line-height: 2;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .emoji {
+        .emoji-bounce {
             display: inline-block;
             animation: bounce 2s ease-in-out infinite;
-            margin: 0 5px;
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.2); }
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            background: linear-gradient(135deg, #FF69B4, #FF1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: slideUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .intro-text {
+            font-size: 1.25em;
+            color: #555;
+            line-height: 2;
+            margin: 40px 0;
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        .message {
+            font-size: 1.6em;
+            background: linear-gradient(135deg, #FF1493 0%, #FF69B4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 40px 0;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            animation: fadeInText 2.5s ease-out;
+            letter-spacing: 1px;
+            line-height: 2.2;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #444;
+            line-height: 1.9;
+            margin: 15px 0;
         }
 
         @keyframes slideUp {
@@ -165,18 +161,14 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes fadeInText {
             0% {
                 opacity: 0;
-                filter: blur(5px);
+                filter: blur(8px);
             }
             100% {
                 opacity: 1;
@@ -184,51 +176,45 @@
             }
         }
 
-        /* ============================================
-           BOTONES
-           ============================================ */
         .button-container {
-            margin-top: 50px;
+            margin-top: 60px;
             display: flex;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
             animation: slideUp 0.8s ease-out 0.8s backwards;
         }
 
         button {
-            background: linear-gradient(135deg, #ff6b9d 0%, #e73c7e 50%, #d946a6 100%);
+            background: linear-gradient(135deg, #FF69B4 0%, #FF1493 50%, #C71585 100%);
             color: white;
             border: none;
-            padding: 16px 35px;
-            font-size: 1.1em;
+            padding: 18px 40px;
+            font-size: 1.15em;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 8px 25px rgba(231, 60, 126, 0.5),
-                        0 0 20px rgba(255, 107, 157, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.6),
+                        0 0 30px rgba(255, 105, 180, 0.5);
             font-weight: 700;
             letter-spacing: 1.5px;
             position: relative;
             overflow: hidden;
             font-family: 'Cormorant Garamond', serif;
             text-transform: uppercase;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.4);
         }
 
         button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(231, 60, 126, 0.7),
-                        0 0 30px rgba(255, 107, 157, 0.5);
-            background: linear-gradient(135deg, #ff5a8f 0%, #d9226f 50%, #c9158f 100%);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 25px 60px rgba(255, 20, 147, 0.9),
+                        0 0 50px rgba(255, 105, 180, 0.7);
         }
 
         button:active {
-            transform: translateY(-2px) scale(1.02);
+            transform: translateY(-2px) scale(1.03);
         }
 
-        /* Efecto de brillo en el botón */
         button::before {
             content: '';
             position: absolute;
@@ -236,54 +222,66 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.6s ease;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transition: left 0.7s ease;
         }
 
         button:hover::before {
             left: 100%;
         }
 
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* ============================================
-           MENSAJES REVELADOS
-           ============================================ */
-        .revealed-messages {
-            margin-top: 50px;
+        .revealed-messages-wrapper {
+            margin-top: 40px;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 1s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border-top: 2px solid rgba(255, 107, 157, 0.3);
-            padding-top: 30px;
+            transition: max-height 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-top: 3px solid rgba(255, 105, 180, 0.4);
+            padding-top: 40px;
         }
 
-        .revealed-messages.show {
-            max-height: 1500px;
-            transition: max-height 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        .revealed-messages-wrapper.show {
+            max-height: 2000px;
+            overflow-y: auto;
+            padding-bottom: 30px;
+        }
+
+        .revealed-messages-wrapper.show::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .revealed-messages-wrapper.show::-webkit-scrollbar-track {
+            background: rgba(255, 105, 180, 0.1);
+            border-radius: 10px;
+        }
+
+        .revealed-messages-wrapper.show::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #FF69B4, #FF1493);
+            border-radius: 10px;
+        }
+
+        .revealed-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .msg-item {
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.08), rgba(231, 60, 126, 0.08));
-            padding: 25px;
-            margin: 18px 0;
-            border-radius: 15px;
-            border-left: 5px solid;
-            border-image: linear-gradient(135deg, #ff6b9d, #e73c7e) 1;
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.15), rgba(255, 20, 147, 0.1));
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 6px solid;
+            border-image: linear-gradient(180deg, #FF69B4, #FF1493) 1;
             animation: slideInLeft 0.6s ease-out forwards;
             opacity: 0;
             backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-            cursor: default;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.15);
         }
 
         .msg-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 8px 25px rgba(231, 60, 126, 0.2);
+            transform: translateX(15px);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.2), rgba(255, 20, 147, 0.15));
         }
 
         .msg-item:nth-child(1) { animation-delay: 0.15s; }
@@ -295,7 +293,7 @@
         @keyframes slideInLeft {
             from {
                 opacity: 0;
-                transform: translateX(-40px);
+                transform: translateX(-50px);
             }
             to {
                 opacity: 1;
@@ -303,9 +301,6 @@
             }
         }
 
-        /* ============================================
-           CORAZONES ANIMADOS FLOTANTES
-           ============================================ */
         .heart {
             position: fixed;
             pointer-events: none;
@@ -317,39 +312,32 @@
         @keyframes float-up {
             0% {
                 opacity: 1;
-                transform: translateY(0) translateX(0) scale(1);
+                transform: translateY(0) translateX(0) scale(1) rotate(0deg);
             }
             100% {
                 opacity: 0;
-                transform: translateY(-100vh) translateX(100px) scale(0);
+                transform: translateY(-100vh) translateX(var(--moveX, 0)) scale(0) rotate(360deg);
             }
         }
 
-        /* ============================================
-           ESTRELLAS Y PARTÍCULAS
-           ============================================ */
         .star {
             position: fixed;
-            width: 2px;
-            height: 2px;
+            width: 3px;
+            height: 3px;
             background: white;
             border-radius: 50%;
             pointer-events: none;
-            opacity: 0.8;
+            opacity: 0.7;
             animation: twinkle 3s infinite;
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
+            0%, 100% { opacity: 0.2; }
             50% { opacity: 1; }
         }
 
-        /* ============================================
-           EFECTO DE BRILLO ESPECIAL
-           ============================================ */
         .glow-effect {
             position: fixed;
-            border-radius: 50%;
             pointer-events: none;
             animation: glowRadiate 0.8s ease-out forwards;
         }
@@ -358,28 +346,25 @@
             0% {
                 opacity: 1;
                 transform: scale(0);
-                box-shadow: 0 0 20px #ff6b9d;
+                box-shadow: 0 0 50px rgba(255, 105, 180, 0.9);
             }
             100% {
                 opacity: 0;
-                transform: scale(3);
-                box-shadow: 0 0 60px rgba(255, 107, 157, 0.5);
+                transform: scale(5);
+                box-shadow: 0 0 100px rgba(255, 105, 180, 0.3);
             }
         }
 
-        /* ============================================
-           SECCIÓN TÉCNICA
-           ============================================ */
         .tech-section {
             margin-top: 60px;
             padding-top: 40px;
-            border-top: 2px solid rgba(255, 107, 157, 0.3);
+            border-top: 2px solid rgba(255, 105, 180, 0.3);
             animation: fadeIn 2s ease-out;
         }
 
         .tech-section h2 {
             font-size: 2em;
-            background: linear-gradient(135deg, #e73c7e, #ff6b9d);
+            background: linear-gradient(135deg, #FF1493, #FF69B4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -396,22 +381,23 @@
         }
 
         .tech-card {
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(231, 60, 126, 0.1));
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.15), rgba(255, 20, 147, 0.1));
             padding: 25px;
             border-radius: 15px;
-            border: 2px solid rgba(255, 107, 157, 0.2);
-            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            transition: all 0.4s ease;
             animation: fadeIn 1s ease-out;
         }
 
         .tech-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(231, 60, 126, 0.2);
-            border-color: #ff6b9d;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+            border-color: #FF69B4;
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.25), rgba(255, 20, 147, 0.15));
         }
 
         .tech-card h3 {
-            color: #e73c7e;
+            color: #FF1493;
             margin-bottom: 10px;
             font-size: 1.3em;
             font-family: 'Playfair Display', serif;
@@ -424,7 +410,7 @@
 
         .badge {
             display: inline-block;
-            background: linear-gradient(135deg, #ff6b9d, #e73c7e);
+            background: linear-gradient(135deg, #FF69B4, #FF1493);
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
@@ -436,13 +422,13 @@
         .features-box {
             margin-top: 40px;
             padding: 25px;
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(231, 60, 126, 0.15));
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.2), rgba(255, 20, 147, 0.15));
             border-radius: 15px;
-            border-left: 4px solid #ff6b9d;
+            border-left: 4px solid #FF69B4;
         }
 
         .features-box h3 {
-            color: #e73c7e;
+            color: #FF1493;
             margin-bottom: 15px;
             font-size: 1.3em;
         }
@@ -453,98 +439,107 @@
             line-height: 1.8;
         }
 
-        /* ============================================
-           DECORACIÓN FINAL
-           ============================================ */
         .decoration {
-            font-size: 2em;
-            margin: 35px 0 20px;
-            animation: float 3.5s ease-in-out infinite;
-            letter-spacing: 15px;
-            opacity: 0.8;
-        }
-
-        .footer-message {
-            font-size: 1.2em;
-            color: #a855a8;
-            margin-top: 40px;
-            font-style: italic;
-            opacity: 0.9;
-            animation: fadeIn 2s ease-out;
-            font-family: 'Dancing Script', cursive;
-            font-weight: 600;
+            font-size: 2.5em;
+            margin: 40px 0 30px;
+            animation: float 3.5s ease-in-out infinite, pulse 2s ease-in-out infinite;
+            letter-spacing: 20px;
+            opacity: 0.95;
         }
 
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-25px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
         }
 
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
+        @keyframes pulse {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.5)); }
+            50% { filter: drop-shadow(0 0 25px rgba(255, 105, 180, 0.9)); }
+        }
+
+        .footer-message {
+            font-size: 1.3em;
+            color: #C71585;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-style: italic;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 600;
+            animation: fadeIn 2s ease-out;
+        }
+
         @media (max-width: 768px) {
             .container {
-                padding: 50px 30px;
-                margin: 20px;
+                padding: 40px 25px;
             }
 
             h1 {
-                font-size: 2.8em;
-                margin-bottom: 10px;
+                font-size: 3em;
             }
 
             .subtitle {
-                font-size: 1.3em;
-                margin-bottom: 15px;
-            }
-
-            .intro-text {
-                font-size: 1em;
+                font-size: 1.4em;
             }
 
             .message {
-                font-size: 1.2em;
+                font-size: 1.3em;
             }
 
             button {
                 padding: 14px 28px;
                 font-size: 1em;
-                flex: 1;
-                min-width: 140px;
+                width: 100%;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-text {
+                font-size: 1.1em;
+            }
+
+            .msg-item {
+                padding: 20px;
+            }
+
+            .revealed-messages-wrapper.show {
+                max-height: 800px;
             }
 
             .decoration {
-                font-size: 1.8em;
-                letter-spacing: 10px;
+                font-size: 2em;
+                letter-spacing: 12px;
             }
         }
 
         @media (max-width: 480px) {
+            .main-wrapper {
+                padding: 15px 15px;
+            }
+
             .container {
-                padding: 40px 20px;
+                padding: 30px 18px;
                 border-radius: 20px;
             }
 
             h1 {
-                font-size: 2.2em;
+                font-size: 2.3em;
+                letter-spacing: 1px;
             }
 
             .subtitle {
-                font-size: 1.1em;
-            }
-
-            .intro-text {
-                font-size: 0.95em;
+                font-size: 1.2em;
+                margin-bottom: 20px;
             }
 
             .message {
-                font-size: 1em;
-                margin: 20px 0;
+                font-size: 1.1em;
             }
 
             button {
@@ -556,177 +551,182 @@
             .button-container {
                 flex-direction: column;
                 gap: 12px;
+                margin-top: 40px;
             }
 
-            .decoration {
+            .tech-section h2 {
                 font-size: 1.5em;
-                letter-spacing: 8px;
             }
 
             .msg-item {
                 padding: 18px;
                 margin: 12px 0;
             }
+
+            .revealed-messages-wrapper.show {
+                max-height: 600px;
+            }
+
+            .decoration {
+                font-size: 1.8em;
+                letter-spacing: 8px;
+            }
+
+            .intro-text {
+                font-size: 1em;
+            }
+
+            .features-box p {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Contenedor Principal -->
-    <div class="container">
-        <!-- Encabezado Principal -->
-        <h1>Para <span class="emoji">💕</span> Ti</h1>
-        <p class="subtitle">Con todo mi corazón</p>
+    <div class="main-wrapper">
+        <div class="container">
+            <h1>Para <span class="emoji-bounce">💕</span> Ti</h1>
+            <p class="subtitle">Con todo mi corazón</p>
 
-        <!-- Introducción -->
-        <p class="intro-text">
-            Hay momentos en la vida cuando las palabras no son suficientes para expresar lo que sentimos.
-            Por eso decidí crear este pequeño rincón especial solo para ti.
-        </p>
-
-        <!-- Mensaje Principal -->
-        <div class="message">
-            ✨ "Eres la niña de mis sueños" ✨
-        </div>
-
-        <p>
-            Cada día te veo y me doy cuenta de lo afortunado que soy.
-            Tu sonrisa ilumina mis días más oscuros,
-            y tu presencia hace que todo tenga sentido.
-        </p>
-
-        <!-- Botones de Interacción -->
-        <div class="button-container">
-            <button onclick="revealMessages()">💕 Presiona Aquí 💕</button>
-            <button onclick="createHearts()">✨ Crea Magia ✨</button>
-        </div>
-
-        <!-- Mensajes Revelados -->
-        <div class="revealed-messages" id="revealedMessages">
-            <div class="msg-item">
-                <div class="message">💖 "Me encantas más de lo que te imaginas"</div>
-                <p>Cada detalle tuyo me enamora más cada día. Tu forma de reír, tu forma de ser, todo en ti es perfecto.</p>
-            </div>
-
-            <div class="msg-item">
-                <div class="message">💭 "Cada día pienso en ti"</div>
-                <p>Desde que despiertas hasta que te duermes, estás en mi mente. Eres lo primero en lo que pienso por la mañana y lo último antes de dormir.</p>
-            </div>
-
-            <div class="msg-item">
-                <div class="message">✨ "Quiero que sepas lo especial que eres para mí"</div>
-                <p>No hay otra persona como tú en este mundo. Tu luz es única, tu esencia es incomparable. Eres mi prioridad, mi razón de sonreír.</p>
-            </div>
-
-            <div class="msg-item">
-                <div class="message">🌟 "No hay palabras suficientes..."</div>
-                <p>Para describir lo mucho que me importas. Eres mi alegría, mi paz, mi hogar. Contigo quiero crecer, soñar y vivir cada momento.</p>
-            </div>
-
-            <div class="msg-item">
-                <div class="message">❤️ "Eres mi persona favorita"</div>
-                <p>En un mundo de millones de personas, elegirías a ti una y mil veces más. Te amo más de lo que las palabras pueden expresar. ¡Simplemente te amo!</p>
-            </div>
-        </div>
-
-        <!-- Decoración Final -->
-        <div class="decoration">
-            💖 ✨ 💖
-        </div>
-
-        <!-- Sección de Detalles Técnicos -->
-        <div class="tech-section">
-            <h2>✨ Hecho con Amor y Tecnología</h2>
-            <p style="font-size: 1.1em; color: #666; margin-bottom: 30px;">
-                Esta página fue creada especialmente para ti, combinando múltiples tecnologías para crear una experiencia única y hermosa.
+            <p class="intro-text">
+                Hay momentos en la vida cuando las palabras no son suficientes para expresar lo que sentimos.
+                Por eso decidí crear este pequeño rincón especial solo para ti, hecho con puro código y amor.
             </p>
 
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <h3>🎨 HTML5</h3>
-                    <p>Estructura semántica moderna y optimizada para todos los dispositivos</p>
-                    <div><span class="badge">Markup</span></div>
-                </div>
+            <div class="message">
+                ✨ "Eres la niña de mis sueños" ✨
+            </div>
 
-                <div class="tech-card">
-                    <h3>✨ CSS3</h3>
-                    <p>Animaciones suaves, gradientes hermosos y transiciones fluidas</p>
-                    <div>
-                        <span class="badge">Animaciones</span>
-                        <span class="badge">Gradientes</span>
+            <p>
+                Cada día te veo y me doy cuenta de lo afortunado que soy.
+                Tu sonrisa ilumina mis días más oscuros,
+                y tu presencia hace que todo tenga sentido.
+            </p>
+
+            <div class="button-container">
+                <button onclick="revealMessages()">💕 Presiona Aquí 💕</button>
+                <button onclick="createHearts()">✨ Crea Magia ✨</button>
+            </div>
+
+            <div class="revealed-messages-wrapper" id="revealedMessages">
+                <div class="revealed-messages">
+                    <div class="msg-item">
+                        <div class="message">💖 "Me encantas más de lo que te imaginas"</div>
+                        <p>Cada detalle tuyo me enamora más cada día. Tu forma de reír, tu forma de ser, todo en ti es perfecto y me hace sentir vivo.</p>
                     </div>
-                </div>
 
-                <div class="tech-card">
-                    <h3>⚡ JavaScript Vanilla</h3>
-                    <p>Interactividad dinámica, efectos especiales y Web Audio API</p>
-                    <div>
-                        <span class="badge">Sin Frameworks</span>
-                        <span class="badge">Audio</span>
+                    <div class="msg-item">
+                        <div class="message">💭 "Cada día pienso en ti"</div>
+                        <p>Desde que despiertas hasta que te duermes, estás en mi mente. Eres lo primero en lo que pienso por la mañana y lo último antes de dormir.</p>
                     </div>
-                </div>
 
-                <div class="tech-card">
-                    <h3>🎭 Diseño Responsive</h3>
-                    <p>Se adapta perfectamente a móvil, tablet y computadora</p>
-                    <div><span class="badge">Mobile First</span></div>
-                </div>
-
-                <div class="tech-card">
-                    <h3>🌐 Google Fonts</h3>
-                    <p>Tipografías elegantes y premium</p>
-                    <div>
-                        <span class="badge">Playfair Display</span>
-                        <span class="badge">Cormorant Garamond</span>
+                    <div class="msg-item">
+                        <div class="message">✨ "Quiero que sepas lo especial que eres para mí"</div>
+                        <p>No hay otra persona como tú en este mundo. Tu luz es única, tu esencia es incomparable. Eres mi prioridad absoluta.</p>
                     </div>
-                </div>
 
-                <div class="tech-card">
-                    <h3>💾 GitHub Pages</h3>
-                    <p>Hospedada en la nube, accesible desde cualquier parte del mundo</p>
-                    <div><span class="badge">Cloud Hosting</span></div>
+                    <div class="msg-item">
+                        <div class="message">🌟 "No hay palabras suficientes..."</div>
+                        <p>Para describir lo mucho que me importas. Eres mi alegría, mi paz, mi hogar. Contigo quiero crecer, soñar y vivir cada momento especial.</p>
+                    </div>
+
+                    <div class="msg-item">
+                        <div class="message">❤️ "Eres mi persona favorita"</div>
+                        <p>En un mundo de millones de personas, elegirías a ti una y mil veces más. Te amo más de lo que las palabras pueden expresar. ¡Simplemente te amo!</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="features-box">
-                <h3>🎬 Animaciones y Efectos Incluidos:</h3>
-                <p>
-                    ✓ Fade-in y Slide-up (entrada elegante)<br>
-                    ✓ Corazones flotantes animados<br>
-                    ✓ Estrellas parpadeantes de fondo<br>
-                    ✓ Efecto de brillo radiante<br>
-                    ✓ Transiciones suaves en botones<br>
-                    ✓ Mensajes revelados con animación cascada<br>
-                    ✓ Emoji bouncing<br>
-                    ✓ Hover effects elegantes<br>
-                    ✓ Gradiente de fondo animado (15s)<br>
-                    ✓ Web Audio API para efectos de sonido<br>
-                    ✓ Blur effects y backdrop filters<br>
-                    ✓ Clip-path para textos degradados
+            <div class="decoration">
+                💖 ✨ 💖
+            </div>
+
+            <div class="tech-section">
+                <h2>✨ Hecho con Amor y Tecnología</h2>
+                <p style="font-size: 1.1em; color: #666; margin-bottom: 30px;">
+                    Esta página fue creada especialmente para ti, combinando múltiples tecnologías para crear una experiencia única y hermosa.
                 </p>
-            </div>
-        </div>
 
-        <!-- Mensaje Final -->
-        <p class="footer-message">
-            Hecho con todo mi amor para alguien muy especial 💕✨
-        </p>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>🎨 HTML5</h3>
+                        <p>Estructura semántica moderna y optimizada para todos los dispositivos</p>
+                        <div><span class="badge">Markup</span></div>
+                    </div>
+
+                    <div class="tech-card">
+                        <h3>✨ CSS3</h3>
+                        <p>Animaciones suaves, gradientes hermosos y transiciones fluidas</p>
+                        <div>
+                            <span class="badge">Animaciones</span>
+                            <span class="badge">Gradientes</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <h3>⚡ JavaScript Vanilla</h3>
+                        <p>Interactividad dinámica, efectos especiales y Web Audio API</p>
+                        <div>
+                            <span class="badge">Sin Frameworks</span>
+                            <span class="badge">Audio</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <h3>🎭 Diseño Responsive</h3>
+                        <p>Se adapta perfectamente a móvil, tablet y computadora</p>
+                        <div><span class="badge">Mobile First</span></div>
+                    </div>
+
+                    <div class="tech-card">
+                        <h3>🌐 Google Fonts</h3>
+                        <p>Tipografías elegantes y premium</p>
+                        <div>
+                            <span class="badge">Playfair Display</span>
+                            <span class="badge">Dancing Script</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <h3>💾 GitHub Pages</h3>
+                        <p>Hospedada en la nube, accesible desde cualquier parte del mundo</p>
+                        <div><span class="badge">Cloud Hosting</span></div>
+                    </div>
+                </div>
+
+                <div class="features-box">
+                    <h3>🎬 Animaciones y Efectos Incluidos:</h3>
+                    <p>
+                        ✓ Fade-in y Slide-up (entrada elegante)<br>
+                        ✓ Corazones flotantes animados con rotación<br>
+                        ✓ Estrellas parpadeantes de fondo<br>
+                        ✓ Efecto de brillo radiante<br>
+                        ✓ Transiciones suaves en botones<br>
+                        ✓ Mensajes revelados con animación cascada<br>
+                        ✓ Emoji bouncing<br>
+                        ✓ Hover effects elegantes<br>
+                        ✓ Gradiente de fondo animado (12s)<br>
+                        ✓ Web Audio API para efectos de sonido<br>
+                        ✓ Blur effects y backdrop filters<br>
+                        ✓ Clip-path para textos degradados<br>
+                        ✓ Scrollbar personalizada rosa/magenta
+                    </p>
+                </div>
+            </div>
+
+            <p class="footer-message">
+                Hecho con todo mi amor para alguien muy especial 💕✨
+            </p>
+        </div>
     </div>
 
-    <!-- Script de Interactividad y Animaciones -->
     <script>
-        // ============================================
-        // CONFIGURACIÓN INICIAL
-        // ============================================
         const CONFIG = {
             heartCount: 15,
-            heartCountMagic: 25,
-            particleLife: 3000,
+            heartCountMagic: 30,
             animationDuration: 800
         };
 
-        // ============================================
-        // FUNCIÓN: Revelar Mensajes con Animación
-        // ============================================
         function revealMessages() {
             const container = document.getElementById('revealedMessages');
             const isVisible = container.classList.contains('show');
@@ -734,40 +734,30 @@
             if (!isVisible) {
                 container.classList.add('show');
                 createGlowEffect();
-                createMultipleHearts(8);
+                createMultipleHearts(10);
                 playSound('reveal');
             } else {
                 container.classList.remove('show');
             }
         }
 
-        // ============================================
-        // FUNCIÓN: Crear Efecto Mágico
-        // ============================================
         function createHearts() {
-            const heartCount = CONFIG.heartCountMagic;
-            for (let i = 0; i < heartCount; i++) {
+            for (let i = 0; i < CONFIG.heartCountMagic; i++) {
                 setTimeout(() => {
                     createSingleHeart();
-                }, i * 60);
+                }, i * 50);
             }
             createGlowEffect();
             playSound('magic');
-            triggerConfetti();
         }
 
-        // ============================================
-        // FUNCIÓN: Crear Un Corazón Individual
-        // ============================================
         function createSingleHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
             
-            // Variedad de emojis románticos
-            const hearts = ['❤️', '💕', '💖', '💗', '💝'];
+            const hearts = ['❤️', '💕', '💖', '💗', '💝', '🌹', '💐'];
             heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
 
-            // Posición aleatoria
             const startX = Math.random() * window.innerWidth;
             const startY = window.innerHeight + 50;
 
@@ -775,7 +765,6 @@
             heart.style.top = startY + 'px';
             heart.style.fontSize = (1 + Math.random() * 1.5) + 'em';
 
-            // Movimiento aleatorio
             const moveX = (Math.random() - 0.5) * 300;
             const duration = 2500 + Math.random() * 1500;
             
@@ -784,7 +773,6 @@
 
             document.body.appendChild(heart);
 
-            // Remover después de la animación
             setTimeout(() => {
                 heart.remove();
             }, duration);
@@ -798,9 +786,6 @@
             }
         }
 
-        // ============================================
-        // FUNCIÓN: Efecto de Brillo y Radiación
-        // ============================================
         function createGlowEffect() {
             const glow = document.createElement('div');
             glow.className = 'glow-effect';
@@ -810,9 +795,8 @@
 
             glow.style.left = x + 'px';
             glow.style.top = y + 'px';
-            glow.style.width = '60px';
-            glow.style.height = '60px';
-            glow.style.background = 'radial-gradient(circle, rgba(255, 107, 157, 0.6), transparent)';
+            glow.style.width = '70px';
+            glow.style.height = '70px';
 
             document.body.appendChild(glow);
 
@@ -821,53 +805,8 @@
             }, CONFIG.animationDuration);
         }
 
-        // ============================================
-        // FUNCIÓN: Efecto Confeti
-        // ============================================
-        function triggerConfetti() {
-            for (let i = 0; i < 30; i++) {
-                createConfetti();
-            }
-        }
-
-        function createConfetti() {
-            const confetti = document.createElement('div');
-            confetti.style.position = 'fixed';
-            confetti.style.pointerEvents = 'none';
-            confetti.style.fontSize = '1.5em';
-            confetti.style.opacity = '1';
-
-            const emojis = ['🌹', '💐', '🌸', '✨', '🎀', '💕'];
-            confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-
-            const startX = Math.random() * window.innerWidth;
-            const startY = -50;
-
-            confetti.style.left = startX + 'px';
-            confetti.style.top = startY + 'px';
-
-            const rotation = Math.random() * 360;
-            const moveX = (Math.random() - 0.5) * 400;
-
-            confetti.style.animation = `
-                fall-confetti 4s ease-in forwards
-            `;
-
-            confetti.style.setProperty('--moveX', moveX + 'px');
-            confetti.style.setProperty('--rotation', rotation + 'deg');
-
-            document.body.appendChild(confetti);
-
-            setTimeout(() => {
-                confetti.remove();
-            }, 4000);
-        }
-
-        // ============================================
-        // FUNCIÓN: Crear Estrellas de Fondo
-        // ============================================
         function createStars() {
-            const starCount = 60;
+            const starCount = 100;
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
@@ -878,52 +817,42 @@
             }
         }
 
-        // ============================================
-        // FUNCIÓN: Audio (si está disponible)
-        // ============================================
         function playSound(type) {
-            // Crear sonidos simples con Web Audio API
             try {
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
                 const now = audioContext.currentTime;
 
                 if (type === 'reveal') {
-                    // Sonido de revelación
                     const osc = audioContext.createOscillator();
                     const gain = audioContext.createGain();
                     osc.connect(gain);
                     gain.connect(audioContext.destination);
                     osc.frequency.setValueAtTime(523.25, now);
-                    osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.1);
-                    gain.gain.setValueAtTime(0.3, now);
-                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+                    osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.15);
+                    gain.gain.setValueAtTime(0.25, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
                     osc.start(now);
-                    osc.stop(now + 0.1);
+                    osc.stop(now + 0.15);
                 } else if (type === 'magic') {
-                    // Sonido mágico
-                    for (let i = 0; i < 3; i++) {
+                    for (let i = 0; i < 4; i++) {
                         const osc = audioContext.createOscillator();
                         const gain = audioContext.createGain();
                         osc.connect(gain);
                         gain.connect(audioContext.destination);
-                        osc.frequency.setValueAtTime(600 + i * 150, now + i * 0.05);
-                        gain.gain.setValueAtTime(0.2, now + i * 0.05);
-                        gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.05 + 0.08);
-                        osc.start(now + i * 0.05);
-                        osc.stop(now + i * 0.05 + 0.08);
+                        osc.frequency.setValueAtTime(700 + i * 200, now + i * 0.06);
+                        gain.gain.setValueAtTime(0.2, now + i * 0.06);
+                        gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.06 + 0.1);
+                        osc.start(now + i * 0.06);
+                        osc.stop(now + i * 0.06 + 0.1);
                     }
                 }
             } catch (e) {
-                // Audio no disponible, continuar sin sonido
+                // Audio no disponible
             }
         }
 
-        // ============================================
-        // EVENTOS: Interacción del Usuario
-        // ============================================
         document.addEventListener('click', function(e) {
             if (e.target.tagName !== 'BUTTON' && e.target.parentElement.tagName !== 'BUTTON') {
-                // Crear corazón en la posición del click
                 const heart = document.createElement('div');
                 heart.className = 'heart';
                 heart.textContent = '💕';
@@ -941,7 +870,6 @@
             }
         });
 
-        // Efecto hover en botones
         const buttons = document.querySelectorAll('button');
         buttons.forEach(button => {
             button.addEventListener('mouseenter', function() {
@@ -949,65 +877,16 @@
             });
         });
 
-        // ============================================
-        // INICIALIZACIÓN AL CARGAR LA PÁGINA
-        // ============================================
         window.addEventListener('DOMContentLoaded', function() {
-            // Crear estrellas de fondo
             createStars();
 
-            // Crear corazones iniciales con retraso
             setTimeout(() => {
-                createMultipleHearts(3);
+                createMultipleHearts(4);
             }, 1000);
-
-            // Agregar animaciones CSS faltantes dinámicamente
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes float-up {
-                    0% {
-                        opacity: 1;
-                        transform: translateY(0) translateX(0) scale(1);
-                    }
-                    100% {
-                        opacity: 0;
-                        transform: translateY(-100vh) translateX(var(--moveX, 0)) scale(0);
-                    }
-                }
-
-                @keyframes fall-confetti {
-                    0% {
-                        opacity: 1;
-                        transform: translateY(0) translateX(0) rotate(0deg);
-                    }
-                    100% {
-                        opacity: 0;
-                        transform: translateY(100vh) translateX(var(--moveX, 0)) rotate(var(--rotation, 0deg));
-                    }
-                }
-
-                @keyframes twinkle {
-                    0%, 100% { opacity: 0.3; }
-                    50% { opacity: 1; }
-                }
-
-                @keyframes glowRadiate {
-                    0% {
-                        opacity: 1;
-                        transform: scale(0);
-                    }
-                    100% {
-                        opacity: 0;
-                        transform: scale(3);
-                    }
-                }
-            `;
-            document.head.appendChild(style);
         });
 
-        // Crear corazones cada 8 segundos automáticamente
         setInterval(() => {
-            if (Math.random() > 0.7) {
+            if (Math.random() > 0.8) {
                 createSingleHeart();
             }
         }, 8000);
